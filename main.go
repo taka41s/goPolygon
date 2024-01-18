@@ -1,12 +1,8 @@
 package main
 
 import (
-	// "errors"
 	"fmt"
 	"capybara/api"
-	// "net/http"
-	// "os"
-	// "time"
 )
 
 func main(){

@@ -1,11 +1,8 @@
 package api
 
 import (
-    // "bytes"
     "fmt"
-    // "io/ioutil"
     "net/http"
-	// "encoding/json"
 	"log"
 	"io"
 )
@@ -29,15 +26,15 @@ func Get(apiKey string, start_date string, end_date string, ticker string)  stri
 
 	defer resp.Body.Close()
 
-	b, err := io.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	fmt.Println(string(b))
+	fmt.Println(string(body))
 
-	return string(b)
+	return string(body)
 }
 
 func buildURL(apiKey string, start_date string, end_date string, ticker string) string {
