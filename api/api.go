@@ -1,15 +1,12 @@
 package api
 
 import (
-    "fmt"
     "net/http"
 	"log"
 	"io"
 )
 
-func Get(apiKey string, start_date string, end_date string, ticker string)  string{
-	var url string = buildURL(apiKey, start_date, end_date, ticker)
-
+func Get(url string) string{
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		log.Fatalln(err)
@@ -32,13 +29,5 @@ func Get(apiKey string, start_date string, end_date string, ticker string)  stri
 		log.Fatalln(err)
 	}
 
-	fmt.Println(string(body))
-
 	return string(body)
-}
-
-func buildURL(apiKey string, start_date string, end_date string, ticker string) string {
-	var BuildedURL string = fmt.Sprintf("https://api.polygon.io/v2/aggs/ticker/%s/range/1/day/%s/%s?apiKey=%s", ticker, start_date, end_date, apiKey)
-
-	return BuildedURL
 }

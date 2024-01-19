@@ -6,6 +6,7 @@ import (
 )
 
 func main(){
-	var apiKey string = "ogKoJqWTjDIkOTLdVpPsJv9pbkwjNuOv"
-	fmt.Println(api.Get(apiKey, "2023-01-09", "2023-01-09", "AAPL"))
+	url := api.Aggs("AAPL","2023-01-09", "2023-01-09")
+
+	fmt.Println(api.Get(url))
 }
